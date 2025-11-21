@@ -300,3 +300,13 @@ def NBUnion(H1, H2):
 # print(NBIntersect([1, 4], [3, 2, 1]))                 # --> 1
 # print(NBUnion([1, 2, 3, 4, 5], [5, 6, 7]))            # --> 7
 #====================================================================================================================================================================
+def RemberV2(x, L):
+    if IsEmpty(L):
+        return []
+    else:
+        if LastElmt(L) == x:
+            return Head(L)
+        else:
+            return Konso(LastElmt(L), RemberV2(x, Head(L)))
+        
+print(RemberV2(1, [1,2, 3, 1, 2]))
