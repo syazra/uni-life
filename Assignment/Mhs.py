@@ -1,97 +1,112 @@
-#====================================================================================================================================================================
-# TYPE MAHASISWA (MHS)
-#====================================================================================================================================================================
+# ====================================================================================================================
+# TYPE MAHASISWA
+# ====================================================================================================================
+
 # DEFINISI DAN SPESIFIKASI TYPE
-# type Mhs: <nim: string, nama: string, kelas: character, nilai: list of integer>
-# type Mhs terdiri atas nim, nama, dan kelas mahasiswa, serta kumpulan nilai kuis yang pernah dikerjakan, dengan maksimal jumlah mengerjakan adalah 10 kali
-#   nilai mahasiswa memiliki rentang antara 0-100
-#====================================================================================================================================================================
+# ==============================
+# type Mhs: <NIM: string, Nama: string, Kelas: character, Nilai: list of integer>
+# type Mhs terdiri atas NIM, nama, dan kelas mahasiswa, serta kumpulan nilai kuis yang pernah dikerjakan,
+#   dengan maksimal jumlah mengerjakan adalah 10 kali nilai mahasiswa memiliki rentang antara 0-100
+
 # DEFINISI DAN SPESIFIKASI KONSTRUKTOR
-# MakeMhs: <string, string, character, list of integer> --> Mhs
-# MakeMhs(nim, nama, kelas, nilai) membentuk sebuah mahasiswa dengan nim, nama, kelas, dan nilai berbentuk list of integer
+# =====================================
+# MakeMhs: <string, string, character, list of integer> -> Mhs
+# MakeMhs(NIM, Nama, Kelas, Nilai) membentuk sebuah mahasiswa dengan nim, nama, kelas, dan nilai berbentuk list of integer
 #   Contoh:
-#   MakeMhs('234', 'Andi', 'C', []) membentuk mahasiswa dengan nim '234', nama 'Andi' dari kelas C, dan belum pernah mengerjakan kuis (nilainya berupa list kosong)
-#   MakeMhs('123', 'Caca', 'C', [90, 80, 100]) membentuk mahasiswa dengan nim '123', nama 'Caca' dari kelas C, dan telah mengerjakan kuis sebanyak tiga kali dengan
-#   masing-masing nilai adalah 90, 80, dan 100
+#   MakeMhs('234', 'Andi', 'C', []) membentuk mahasiswa dengan nim '234', nama 'Andi' dari kelas C,
+#       dan belum pernah mengerjakan kuis (nilainya berupa list kosong)
+#   MakeMhs('123', 'Caca', 'C', [90, 80, 100]) membentuk mahasiswa dengan nim '123', nama 'Caca' dari kelas C,
+#       dan telah mengerjakan kuis sebanyak tiga kali dengan masing-masing nilai adalah 90, 80, dan 100
 # REALISASI
-def MakeMhs(nim, nama, kelas, nilai):
-    return [nim, nama, kelas, nilai]
-#====================================================================================================================================================================
+def MakeMhs(NIM, Nama, Kelas, Nilai):
+    return [NIM, Nama, Kelas, Nilai]
+
 # DEFINISI DAN SPESIFIKASI SELEKTOR
-# nim: Mhs --> string
-# nim(M) mengembalikan nim dari mahasiswa M
+# ==================================
+# GetNIM: Mhs -> string
+# GetNIM(M) mengembalikan NIM dari mahasiswa M
 # REALISASI
-def nim(M):
+def GetNIM(M):
     return M[0]
-# nama: Mhs --> string
-# nama(M) mengembalikan nama dari mahasiswa M
+
+# GetNama: Mhs -> string
+# GetNama(M) mengembalikan nama dari mahasiswa M
 # REALISASI
-def nama(M):
+def GetNama(M):
     return M[1]
-# kelas: Mhs --> character
-# kelas(M) mengembalikan kelas dari mahasiswa M
+
+# GetKelas: Mhs -> character
+# GetKelas(M) mengembalikan kelas dari mahasiswa M
 # REALISASI
-def kelas(M):
+def GetKelas(M):
     return M[2]
-# nilai: Mhs --> list of integer
-# nilai(M) mengembalikan daftar nilai kuis dari mahasiswa M
+
+# GetNilai: Mhs -> list of integer
+# GetNilai(M) mengembalikan daftar nilai kuis dari mahasiswa M
 # REALISASI
-def nilai(M):
+def GetNilai(M):
     return M[3]
-#====================================================================================================================================================================
 
-
-
-#====================================================================================================================================================================
+# ====================================================================================================================
 # TYPE LIST
-#====================================================================================================================================================================
+# ====================================================================================================================
+
 # DEFINISI DAN SPESIFIKASI TYPE
+# ==============================
 # Konstruktor menambahkan elemen di awal, notasi prefix
 # type list: [] atau [e o list]
 # Konstruktor menambahkan elemen di akhir, notasi prefix
 # type list: [] atau [list o e]
-#====================================================================================================================================================================
+
 # DEFINISI DAN SPESIFIKASI KONSTRUKTOR
-# Konso: elemen, list --> list
+# =====================================
+# Konso: elemen, list -> list
 # Konso(e, L) menambahkan elemen di baris awal list
 # REALISASI
 def Konso(e, L):
     return [e] + L
-# Konsi: list, elemen --> list
+
+# Konsi: list, elemen -> list
 # Konsi(L, e) menambahkan elemen di baris akhir list
 # REALISASI
 def Konsi(L, e):
     return L + [e]
-#====================================================================================================================================================================
+
 # DEFINISI DAN SPESIFIKASI SELEKTOR
-# FirstElmt: list tidak kosong --> elemen
+# ==================================
+# FirstElmt: list tidak kosong -> elemen
 # FirstElmt(L) mengembalikan elemen pertama list L
 # REALISASI
 def FirstElmt(L):
     return L[0]
-# Tail: list --> list
+
+# Tail: list -> list
 # Tail(L) mengembalikan list tanpa elemen pertama list L, mungkin kosong
 # REALISASI
 def Tail(L):
     return L[1:] 
-# LastElmt: list tidak kososng --> elemen
+
+# LastElmt: list tidak kososng -> elemen
 # LastElmt(L) mengembalikan elemen terakhir pada list L
 # REALISASI
 def LastElmt(L):
     return L[-1]
-# Head: list --> list
+
+# Head: list -> list
 # Head(L) mengembalikan list tanpa elemen terakhir list L, mungkin kosong
 # REALISASI
 def Head(L):
     return L[:-1]
-#====================================================================================================================================================================
+
 # DEFINISI DAN SPESIFIKASI PREDIKAT
-# IsEmpty: list --> boolean
+# ==================================
+# IsEmpty: list -> boolean
 # IsEmpty(L) benar jika list kosong
 # REALISASI
 def IsEmpty(L):
     return L == []
-# IsMember: elemen, list --> boolean
+
+# IsMember: elemen, list -> boolean
 # IsMember(x, L) benar jika x adalah elemen list L
 # REALISASI
 def IsMember(x, L):
@@ -99,9 +114,10 @@ def IsMember(x, L):
         return False
     else:
         return IsMember(x, Tail(L)) or FirstElmt(L) == x
-#====================================================================================================================================================================
+
 # DEFINISI DAN SPESIFIKASI OPERATOR
-# NbElmt: list --> integer
+# ==================================
+# NbElmt: list -> integer
 # NbElmt(L) menghitung jumlah elemen dari list, nol jika kosong
 # REALISASI
 def NbElmt(L):
@@ -109,15 +125,14 @@ def NbElmt(L):
         return 0
     else: 
         return 1 + NbElmt(Tail(L))
-#====================================================================================================================================================================
 
-
-
-#====================================================================================================================================================================
+# ====================================================================================================================
 # NILAI RATA KUIS MAHASISWA
-#====================================================================================================================================================================
+# ====================================================================================================================
+
 # DEFINISI DAN SPESIFIKASI
-# NilaiTotal: Mhs --> integer
+# =========================
+# NilaiTotal: Mhs -> integer
 # NilaiTotal(M) menghitung nilai total dari kuis yang dikerjakan
 # REALISASI
 def NilaiTotal(M):
@@ -125,39 +140,42 @@ def NilaiTotal(M):
         return 0
     else:
         return FirstElmt(M) + NilaiTotal(Tail(M))
-# NilaiRata: Mhs --> real
+
+# NilaiRata: Mhs -> real
 # NilaiRata(M) menghitung nilai rata-rata dari kuis yang dikerjakan
 # REALISASI
 def NilaiRata(M):
-    if NilaiTotal(nilai(M)) == 0:
-        return 0
+    if NilaiTotal(GetNilai(M)) == 0:
+        return 0.0
     else:
-        return NilaiTotal(nilai(M)) / NbElmt(nilai(M))
-#====================================================================================================================================================================
+        return NilaiTotal(GetNilai(M)) / NbElmt(GetNilai(M))
+
 # APLIKASI
 print(NilaiRata(MakeMhs('121', 'Raka', 'F', [])))
 print(NilaiRata(MakeMhs('122', 'Ana', 'A', [92, 97])))
 print(NilaiRata(MakeMhs('123', 'Rose', 'B', [95, 64, 77])))
-#====================================================================================================================================================================
+# ====================================================================================================================
 
-
-
-#====================================================================================================================================================================
+# ====================================================================================================================
 # TYPE SET OF MAHASISWA (HIMPUNAN MAHASISWA)
-#====================================================================================================================================================================
+# ====================================================================================================================
+
 # DEFINISI DAN SPESIFIKASI PREDIKAT UNTUK MEMBUAT KONSTRUKTOR
-# IsMhs: Mhs, list of Mhs --> boolean
+# ============================================================
+# IsMhs: Mhs, list of Mhs -> boolean
 # IsMhs(M1, M2) benar jika nim mahasiswa M1 terdapat di dalam list mahasiswa M2
 # REALISASI
 def IsMhs(M1, M2):
     if IsEmpty(M2):
         return False
     else:
-        return IsMhs(M1, Tail(M2)) or nim(M1) == nim(FirstElmt(M2))
-#====================================================================================================================================================================
+        return IsMhs(M1, Tail(M2)) or GetNIM(M1) == GetNIM(FirstElmt(M2))
+
 # DEFINISI DAN SPESIFIKASI KONSTRUKTOR
-# MakeSetMhs: list of Mhs --> set of Mhs
-# MakeSetMhs(M) membuat sebuah set mahasiswa, yaitu membuang semua mahasiswa yang memiliki nim sama sehingga tidak ada duplikasi
+# =====================================
+# MakeSetMhs: list of Mhs -> set of Mhs
+# MakeSetMhs(M) membuat sebuah set mahasiswa, yaitu membuang semua mahasiswa yang memiliki nim sama
+#   sehingga tidak ada duplikasi
 # REALISASI
 def MakeSetMhs(M):
     if IsEmpty(M):
@@ -166,7 +184,7 @@ def MakeSetMhs(M):
         return MakeSetMhs(Tail(M))
     else:
         return Konso(FirstElmt(M), MakeSetMhs(Tail(M)))
-#====================================================================================================================================================================
+
 # APLIKASI
 print(MakeSetMhs([
     MakeMhs('111', 'Dino', 'C', []),
@@ -232,25 +250,26 @@ print(MakeSetMhs([
     MakeMhs('159', 'Nofa', 'D', [90, 79, 88, 92, 64, 93]),
     MakeMhs('160', 'Linda', 'E', [99, 100, 97])
 ]))
-#====================================================================================================================================================================
+# ====================================================================================================================
 
-
-
-#====================================================================================================================================================================
+# ====================================================================================================================
 # MAHASISWA LULUS
-#====================================================================================================================================================================
+# ====================================================================================================================
+
 # DEFINISI DAN SPESIFIKASI
-# MhsLulus: set of Mhs --> set
-# MhsLulus(M) mengembalikan himpunan mahasiswa yang lulus, yaitu mahasiswa yang memiliki nilai rata-rata lebih dari sama dengan 70
+# =========================
+# MhsLulus: set of Mhs -> set
+# MhsLulus(M) mengembalikan himpunan mahasiswa yang lulus, yaitu mahasiswa yang memiliki nilai rata-rata
+#   lebih dari sama dengan 70
 # REALISASI
 def MhsLulus(M):
     if IsEmpty(M):
         return []
     elif NilaiRata(FirstElmt(M)) >= 70:
-        return Konso(nama(FirstElmt(M)), MhsLulus(Tail(M)))
+        return Konso(GetNama(FirstElmt(M)), MhsLulus(Tail(M)))
     else:
         return MhsLulus(Tail(M))
-#====================================================================================================================================================================
+
 # APLIKASI
 print(MhsLulus([
     MakeMhs('111', 'Dino', 'C', []),
@@ -304,28 +323,26 @@ print(MhsLulus([
     MakeMhs('159', 'Nofa', 'D', [90, 79, 88, 92, 64, 93]),
     MakeMhs('160', 'Linda', 'E', [99, 100, 97])
 ]))
-#====================================================================================================================================================================
+# ====================================================================================================================
 
-
-
-#====================================================================================================================================================================
-# MAHASISWA TIDAK KUIS DI KELAS
-#====================================================================================================================================================================
+# ====================================================================================================================
+# MAHASISWA TIDAK KUIS DI KELAS 'K'
+# ====================================================================================================================
 # DEFINISI DAN SPESIFIKASI
-# MhsTidakKuisKelas: character, set of Mhs --> set
+# MhsTidakKuisKelas: character, set of Mhs -> set
 # MhsTidakKuisKelas(K, M) mengembalikan himpunan mahasiswa yang tidak mengerjakan kuis sama sekali di kelas K
 # REALISASI
 def MhsTidakKuisKelas(K, M):
     if IsEmpty(M):
         return []
-    elif K == kelas(FirstElmt(M)):
-        if IsEmpty(nilai(FirstElmt(M))):
-            return Konso(nama(FirstElmt(M)), MhsTidakKuisKelas(K, Tail(M)))
+    elif K == GetKelas(FirstElmt(M)):
+        if IsEmpty(GetNilai(FirstElmt(M))):
+            return Konso(GetNama(FirstElmt(M)), MhsTidakKuisKelas(K, Tail(M)))
         else:
             return MhsTidakKuisKelas(K, Tail(M))
     else:
         return MhsTidakKuisKelas(K, Tail(M))  
-#====================================================================================================================================================================
+
 # APLIKASI
 print(MhsTidakKuisKelas('A', [
     MakeMhs('111', 'Dino', 'C', []),
@@ -639,31 +656,32 @@ print(MhsTidakKuisKelas('F', [
     MakeMhs('159', 'Nofa', 'D', [90, 79, 88, 92, 64, 93]),
     MakeMhs('160', 'Linda', 'E', [99, 100, 97])
 ]))
-#====================================================================================================================================================================
+# ====================================================================================================================
 
-
-
-#====================================================================================================================================================================
+# ====================================================================================================================
 # NILAI TERTINGGI MAHASISWA
-#====================================================================================================================================================================
+# ====================================================================================================================
+
 # DEFINISI DAN SPESIFIKASI
-# max: real, real --> real
-# max(a, b) adalah fungsi antara yang mengembalikan nilai maksimum antara a dan b
+# =========================
+# Max2: real, real --> real
+# Max2(a, b) adalah fungsi antara yang mengembalikan nilai maksimum antara a dan b
 # REALISASI
-def max(a, b):
+def Max2(a, b):
     if a >= b:
         return a
     else:
         return b
-# NilaiTertinggiMhs: set of Mhs --> real
+
+# NilaiTertinggiMhs: set of Mhs -> real
 # NilaiTertinggiMhs(M) mengembalikan nilai rata-rata tertinggi dari semua kelas
 # REALISASI
 def NilaiTertinggiMhs(M):
     if IsEmpty(M):
         return 0
     else:
-        return max(NilaiRata(FirstElmt(M)), NilaiTertinggiMhs(Tail(M)))
-#====================================================================================================================================================================
+        return Max2(NilaiRata(FirstElmt(M)), NilaiTertinggiMhs(Tail(M)))
+
 # APLIKASI
 print(NilaiTertinggiMhs([
     MakeMhs('111', 'Dino', 'C', []),
@@ -717,50 +735,54 @@ print(NilaiTertinggiMhs([
     MakeMhs('159', 'Nofa', 'D', [90, 79, 88, 92, 64, 93]),
     MakeMhs('160', 'Linda', 'E', [99, 100, 97])
 ]))
-#====================================================================================================================================================================
+# ====================================================================================================================
 
+# ====================================================================================================================
+# MAHASISWA NILAI TERTINGGI DI KELAS 'K'
+# ====================================================================================================================
 
-
-#====================================================================================================================================================================
-# MAHASISWA NILAI TERTINGGI DI KELAS
-#====================================================================================================================================================================
 # DEFINISI DAN SPESIFIKASI
-# MhsKelas: character, set of Mhs --> set of Mhs
+# =========================
+# MhsKelas: character, set of Mhs -> set of Mhs
 # MhsKelas(K, M) mengembalikan himpunan mahasiswa yang merupakan mahasiswa kelas K
 # REALISASI
 def MhsKelas(K, M):
     if IsEmpty(M):
         return []
-    elif K == kelas(FirstElmt(M)):
+    elif K == GetKelas(FirstElmt(M)):
         return Konso(FirstElmt(M), MhsKelas(K, Tail(M)))
     else:
         return MhsKelas(K, Tail(M))
-# MhsKuisKelas: character, set of Mhs --> set of Mhs 
-# MhsKuisKelas(K, M) mengembalikan himpunan mahasiswa yang mengerjakan kuis dan membuang mahasiswa yang tidak mengerjakan kuis di kelas K
+
+# MhsKuisKelas: character, set of Mhs -> set of Mhs 
+# MhsKuisKelas(K, M) mengembalikan himpunan mahasiswa yang mengerjakan kuis dan membuang mahasiswa
+#   yang tidak mengerjakan kuis di kelas K
 # REALISASI
 def MhsKuisKelas(K, M):
     if IsEmpty(MhsKelas(K, M)):
         return []
-    elif IsMember(nama(FirstElmt(MhsKelas(K, M))), MhsTidakKuisKelas(K, M)):
+    elif IsMember(GetNama(FirstElmt(MhsKelas(K, M))), MhsTidakKuisKelas(K, M)):
         return MhsKuisKelas(K, Tail(MhsKelas(K, M)))
     else:
         return Konso(FirstElmt(MhsKelas(K, M)), MhsKuisKelas(K, Tail(MhsKelas(K, M))))
-# MhsNilaiTertinggi: real, set of Mhs --> set
+
+# MhsNilaiTertinggi: real, set of Mhs -> set
 # MhsNilaiTertinggi(N, M) mengembalikan himpunan mahasiswa yang memiliki nilai rata-rata N
 # REALISASI
 def MhsNilaiTertinggi(N, M):
     if IsEmpty(M):
         return []
     elif N == NilaiRata(FirstElmt(M)):
-        return Konso(nama(FirstElmt(M)), MhsNilaiTertinggi(N, Tail(M)))
+        return Konso(GetNama(FirstElmt(M)), MhsNilaiTertinggi(N, Tail(M)))
     else:
         return MhsNilaiTertinggi(N, Tail(M))
-# MhsNilaiTertinggiKelas: character, set of Mhs --> set
+
+# MhsNilaiTertinggiKelas: character, set of Mhs -> set
 # MhsNilaiTertinggiKelas(K, M) mengembalikan himpunan mahasiswa yang mendapatkan nilai tertinggi di kelas K
 # REALISASI
 def MhsNilaiTertinggiKelas(K, M):
     return MhsNilaiTertinggi(NilaiTertinggiMhs(MhsKelas(K, M)), MhsKuisKelas(K, M))       
-#====================================================================================================================================================================
+
 # APLIKASI
 print(MhsNilaiTertinggiKelas('A', [
     MakeMhs('111', 'Dino', 'C', []),
@@ -1074,25 +1096,25 @@ print(MhsNilaiTertinggiKelas('F', [
     MakeMhs('159', 'Nofa', 'D', [90, 79, 88, 92, 64, 93]),
     MakeMhs('160', 'Linda', 'E', [99, 100, 97])
 ]))
-#====================================================================================================================================================================
+# ====================================================================================================================
 
-
-
-#====================================================================================================================================================================
+# ====================================================================================================================
 # BANYAK MAHASISWA TIDAK KUIS
-#====================================================================================================================================================================
+# ====================================================================================================================
+
 # DEFINISI DAN SPESIFIKASI
-# JumlahMhsTidakKuis: set of Mhs --> integer
+# =========================
+# JumlahMhsTidakKuis: set of Mhs -> integer
 # JumlahMhsTidakKuis(M) menghitung banyaknya mahasiswa yang tidak mengerjakan kuis dari semua kelas
 # REALISASI
 def JumlahMhsTidakKuis(M):
     if IsEmpty(M):
         return 0
-    elif IsEmpty(nilai(FirstElmt(M))):
+    elif IsEmpty(GetNilai(FirstElmt(M))):
         return 1 + JumlahMhsTidakKuis(Tail(M))
     else:
         return JumlahMhsTidakKuis(Tail(M))   
-#====================================================================================================================================================================
+
 # APLIKASI
 print(JumlahMhsTidakKuis([
     MakeMhs('111', 'Dino', 'C', []),
@@ -1146,20 +1168,20 @@ print(JumlahMhsTidakKuis([
     MakeMhs('159', 'Nofa', 'D', [90, 79, 88, 92, 64, 93]),
     MakeMhs('160', 'Linda', 'E', [99, 100, 97])
 ]))
-#====================================================================================================================================================================
+# ====================================================================================================================
 
-
-
-#====================================================================================================================================================================
+# ====================================================================================================================
 # BANYAK MAHASISWA LULUS
-#====================================================================================================================================================================
+# ====================================================================================================================
+
 # DEFINISI DAN SPESIFIKASI
-# JumlahMhsLulus: set of Mhs --> integer
+# =========================
+# JumlahMhsLulus: set of Mhs -> integer
 # JumlahMhsLulus(M) menghitung banyaknya mahasiswa yang lulus dari semua kelas
 # REALISASI
 def JumlahMhsLulus(M):
     return NbElmt(MhsLulus(M))
-#====================================================================================================================================================================
+
 # APLIKASI
 print(JumlahMhsLulus([
     MakeMhs('111', 'Dino', 'C', []),
@@ -1213,4 +1235,4 @@ print(JumlahMhsLulus([
     MakeMhs('159', 'Nofa', 'D', [90, 79, 88, 92, 64, 93]),
     MakeMhs('160', 'Linda', 'E', [99, 100, 97])
 ]))
-#====================================================================================================================================================================
+# ====================================================================================================================
